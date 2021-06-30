@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <tr>
+            <th>Symbol</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>Time</th>
+        </tr>
+        {% for row in rows %}
+            <tr>
+                <td>{{row.symbol}}</td>
+                <td>{{row.shares}}</td>
+                <td>{{usd(row.price)}}</td>
+                <td>{{row.time}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <footer class="small text-center text-muted">
+      Data provided for free by <a href="https://iextrading.com/developer">IEX</a>. View <a href="https://iextrading.com/api-exhibit-a/">IEX's term of use.</a>
+    </footer>
+{% endblock %}
